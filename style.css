@@ -16,10 +16,14 @@
 
 body {
   margin: 0;
-  padding: 20px; /* чтобы сверху/снизу был “воздух” */
+  padding: 20px;
   display: flex;
-  justify-content: center; /* центрируем горизонтально */
-  background: #f5f5f5; /* или градиент, как хочешь */
+  justify-content: center;
+  background: linear-gradient(180deg, #ffeae2, #fffaf6);
+  color: #333;
+  font-family: "Lora", cursive;
+  font-size: 18px;
+  text-align: center;
 }
 
 .container {
@@ -41,25 +45,14 @@ body {
   }
 }
  
- .gradient-title {
-  background: linear-gradient(90deg, #f7b7b7, #fcd9b8, #fde9e1, #f7b7b7);
-  color: #333;
-  background-size: 100% 100%;
-  font-family: "Marck Script", cursive;
-  font-size: 18px;
-  text-align: center;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  animation: shine 6s ease-in-out infinite;
-}
+ 
 
 /* CSS: помести в style.css или <style> в <head> */
 
 /* контейнер заголовка */
 .title-wrap {
   position: relative;
-  display: inline-block
+  display: inline-block;
   z-index: 2;
   margin: 30px auto;
 }
@@ -179,27 +172,6 @@ body {
   100% { transform: scale(0); opacity: 0; }
 }
 
-
-/* Анимация градиента 🌈 */
-@keyframes shine {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-body {
-  background: linear-gradient(180deg, #ffeae2, #fffaf6);
-  color: #333;
-  font-family: "Lora", cursive;
-  font-size: 18px;
-  text-align: center;
-  margin-top: 50px;
-  img {
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  
-}
-}
 figure {
   text-align: center;
   margin-top: 20px;
@@ -236,8 +208,4 @@ figcaption {
 
 .button:hover {
   background-color: #e5a89c; /* немного темнее при наведении */
-}
-
-h1 {
-  color: #0077ff;
 }
