@@ -16,14 +16,6 @@ body {
   text-align: center;
 }
 
-.container {
-  width: 375px; /* примерно ширина экрана телефона */
-  max-width: 100%;
-  background: #fff; /* фон “экрана” */
-  box-shadow: 0 0 10px rgba(0,0,0,0.2); /* лёгкая тень для рамки */
-  padding: 20px;
-  box-sizing: border-box;
-}
 
 @media (max-width: 400px) {
   .container {
@@ -166,15 +158,23 @@ body {
 }
 
 figure {
-  text-align: center;
-  margin-top: 20px;
+  display: block;          /* делаем блоком, чтобы каждая картинка на новой строке */
+  text-align: center;      /* центрируем содержимое внутри figure */
+  margin: 20px auto;       /* вертикальный отступ + горизонтальное центрирование */
   border: 3px solid #ffb6a3; /* персиковая рамка */
-  border-radius: 12px; /* закруглённые углы */
-  padding: 8px; /* отступ между рамкой и картинкой */
-  margin: 20px auto;
+  border-radius: 12px;     /* закруглённые углы */
+  padding: 8px;            /* отступ между рамкой и картинкой */
   background-color: #fffaf7; /* нежный фон внутри */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* мягкая тень */
-  display: inline-block; /* чтобы не растягивалось на всю ширину */
+  max-width: 100%;         /* не вылезает за экран */
+}
+
+figure img {
+  display: block;          /* убираем inline свойства */
+  margin: 0 auto;          /* центрируем картинку внутри figure */
+  max-width: 100%;         /* адаптируем под экран */
+  height: auto;            /* сохраняем пропорции */
+  border-radius: 12px;     /* скругляем углы картинки */
 }
 
 figcaption {
