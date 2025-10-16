@@ -46,7 +46,7 @@ body {
   color: #333;
   background-size: 100% 100%;
   font-family: "Marck Script", cursive;
-  font-size: 40px;
+  font-size: 18px;
   text-align: center;
   padding: 20px;
   border-radius: 15px;
@@ -68,7 +68,7 @@ body {
 .gradient-title {
   margin: 0;
   font-family: "Marck Script", cursive;
-  font-size: 48px;
+  font-size: 38px;
   padding: 18px 28px;
   border-radius: 14px;
   background: linear-gradient(90deg, #f7b7b7, #fcd9b8, #fde9e1, #f7b7b7);
@@ -230,7 +230,7 @@ figcaption {
   font-style: normal;
   border-radius: 50px;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 30px;
   transition: 0.3s;
 }
 
