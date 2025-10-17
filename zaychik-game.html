@@ -1,0 +1,143 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опасная игра с Зайчиком</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+    <div class="title-wrap">
+    <h1 class="gradient-title">Опасная игра</h1>
+      <span class="paw paw1" aria-hidden="true">🐾</span>
+  <span class="paw paw3" aria-hidden="true">🐾</span>
+</div>
+    
+    <div class="container" id="zaychik-game">
+  
+  <figure>
+  <img id="zaychik" src="ZaychickLooking.jpg" alt="Зайчик" width="300">
+  <figcaption id="reaction-text">Да не опасный я, погладишь? Мрр?</figcaption>
+</figure>
+
+<div id="buttons">
+  <button class="game-btn"
+  onclick="action('pet')">Погладить</button>
+  <button class="game-btn"
+  onclick="action('feed')">Покормить</button>
+  <button class="game-btn"
+  onclick="action('play')">Поиграть</button>
+</div>
+
+<script>
+const zaychik = document.getElementById('zaychik');
+const text = document.getElementById('reaction-text');
+const buttons = document.getElementById('buttons');
+
+function action(type) {
+  const rand = Math.random();
+  let newSrc = 'ZaychickLooking.jpg';
+  let newText = 'Мрр?';
+  let isAngry = false;
+
+  if (type === 'pet') {
+    if (rand < 0.7) {
+      newSrc = 'ZaychickHappy.jpg';
+      newText = 'Мрр! ❤️';
+    } else {
+      newSrc = 'ZaychickAngry.jpg';
+      newText = 'Ай! Не трогай усы!';
+      isAngry = true;
+    }
+  }
+
+  if (type === 'feed') {
+    if (rand < 0.6) {
+      newSrc = 'ZaychickEat.jpg';
+      newText = 'О, вкусняшка!';
+    } else {
+      newSrc = 'ZaychickSleep.jpg';
+      newText = 'Не сейчас, я сплю... 😴';
+    }
+  }
+
+  if (type === 'play') {
+    if (rand < 0.6) {
+      newSrc = 'ZaychickPlay.jpg';
+      newText = 'Уиии! Играем! 🐾';
+    } else if (rand < 0.9) {
+      newSrc = 'ZaychickHide.jpg';
+      newText = 'Ты не поймаешь меня! 😼';
+    } 
+    else {
+      newSrc = 'ZaychickAngry.jpg';
+      newText = 'Укусю! 😼';
+      isAngry = true;
+    }
+  }
+  
+
+  zaychik.src = newSrc;
+  text.textContent = newText;
+
+// если злой — появляется кнопка "убежать"
+  if (isAngry) {
+    buttons.innerHTML = `<button class="game-btn"
+    onclick="runAway()">Убежать! 😱</button>`;
+  } else {
+    resetButtons();
+  }
+}
+
+// новая функция возвращения
+function runAway() {
+  zaychik.src = 'ZaychickRun.png';
+  text.textContent = 'В следующий раз догоню!';
+  buttons.innerHTML = `<button class="game-btn"
+  onclick="returnToZaychik()">Вернуться к Зайчику</button>`;
+}
+
+function returnToZaychik() {
+  const rand = Math.random();
+  if (rand < 0.7) {
+    // Спокойный Зайчик
+    zaychik.src = 'ZaychickLooking.jpg';
+    text.textContent = 'Да всё-всё, успокоился я! Гладь!';
+    isAngry = false;
+    resetButtons(); // показываем все кнопки
+  } else {
+    // Злой Зайчик
+    zaychik.src = 'ZaychickAngry.jpg';
+    text.textContent = 'Ага, вот ты где! Укусю!';
+    isAngry = true;
+
+    // показываем только кнопку "убежать"
+    buttons.innerHTML = '';
+    const runButton = document.createElement('button');
+    runButton.textContent = 'Убежать! 😱';
+    runButton.className = 'game-btn';
+    runButton.onclick = runAway;
+    buttons.appendChild(runButton);
+  }
+}
+
+// восстановить обычные кнопки
+function resetButtons() {
+  buttons.innerHTML = `
+    <button class="game-btn"
+    onclick="action('pet')">Погладить</button>
+    <button class="game-btn"
+    onclick="action('feed')">Покормить</button>
+    <button class="game-btn"
+    onclick="action('play')">Поиграть</button>
+  `;
+}
+</script>
+  
+</div>
+
+    <a href="games.html" class="button">В игры</a>
+    <a href="index.html" class="button">⬅ На главную</a>
+    </div>
+  </body>
+</html>

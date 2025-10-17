@@ -7,8 +7,6 @@
 body {
   margin: 0;
   padding: 20px;
-  display: flex;
-  justify-content: center;
   background: linear-gradient(180deg, #ffeae2, #fffaf6);
   color: #333;
   font-family: "Lora", cursive;
@@ -16,6 +14,22 @@ body {
   text-align: center;
 }
 
+.container {
+  max-width: 600px;        /* чтобы не растягивалось на весь экран */
+  margin: 20px auto;       /* центрирование и отступ сверху/снизу */
+  padding: 15px;           /* внутренние отступы */
+  background-color: #fff8f0; /* лёгкий фон */
+  border-radius: 15px;     /* закруглённые углы */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* лёгкая тень */
+}
+
+#zaychik-game {
+  background-color: #f7c6b8; /* розово-бежевый */
+}
+
+#other-game {
+  font-family: "Lora", cursive;
+}
 
 @media (max-width: 400px) {
   .container {
@@ -184,8 +198,8 @@ figcaption {
   margin-top: 5px;
 }
 .button {
-  display: inline-block;
-  margin-top: 20px;
+  display: block;
+  margin: 20px auto;
   padding: 12px 25px;
   background-color: #f7c6b8; /* розово-бежевый */
   color: #fff;
@@ -201,4 +215,35 @@ figcaption {
 
 .button:hover {
   background-color: #e5a89c; /* немного темнее при наведении */
+}
+
+.button:active {
+  background-color: #d38b87; /* чуть темнее при нажатии */
+  transform: scale(0.95);     /* кнопка слегка “сжимается” */
+}
+
+#buttons {
+  display: flex !important;
+  flex-wrap: wrap; /* чтобы переносились на новую строку */
+  justify-content: center; /* центрируем по горизонтали */
+  gap: 10px; /* расстояние между кнопками */
+  max-width: 360px; /* можно подогнать под размер картинки */
+  margin: 15px auto; /* выравнивание по центру */
+}
+
+.game-btn {
+  font-size: 1.1em;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ffd8a8;
+  cursor: pointer;
+  transition: 0.2s;
+  flex: 1 1 45%; /* две кнопки в строке */
+  max-width: 160px; /* ограничим ширину, чтобы красиво влезали */
+}
+
+.game-btn:hover {
+  background-color: #ffc078;
+  transform: scale(1.05);
 }
